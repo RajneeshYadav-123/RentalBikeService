@@ -20,9 +20,9 @@ const book=require('./routes/booking');
 const connectwithDb=require("./config/database");
 connectwithDb();
 const PORT=process.env.PORT || 5000;
-app.listen(PORT,()=>{
-    console.log(`App is stated at ${PORT}`);
-})
+// app.listen(PORT,()=>{
+//     console.log(`App is stated at ${PORT}`);
+// })
 
 app.get("/",(req,res)=>{
     res.send(`<h1> Desh ji kaise ho</h1>`);
@@ -44,6 +44,8 @@ app.use('/ap1/v1/Feed',feedback);
 app.use('/ap1/v1/State', stateRoutes);
 app.use('/ap1/v1/city',city);
 app.use('/ap1/v1/booking',book);
+
+module.exports = app;
 
 
 
