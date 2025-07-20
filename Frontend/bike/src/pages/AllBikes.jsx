@@ -17,7 +17,7 @@ const AllBikes = () => {
   useEffect(() => {
     const fetchBikes = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/ap1/v1/bikes/bike');
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}ap1/v1/bikes/bike`);
         setBikes(response.data.GetAlBikes);
         console.log(response.data.GetAlBikes);
       } catch (error) {

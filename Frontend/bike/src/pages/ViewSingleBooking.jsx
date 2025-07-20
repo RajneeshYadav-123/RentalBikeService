@@ -19,7 +19,7 @@ const ViewSingleBooking = () => {
   useEffect(() => {
     const fetchBooking = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/ap1/v1/booking/book/${id}`);
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}ap1/v1/booking/book/${id}`);
         setBooking(response.data.bookings);
         setBike(response.data.bikeBookings);
 

@@ -19,7 +19,7 @@ export const Admin = () => {
 
   const fetchStates = async () => {
     try {
-      const res = await axios.get('http://localhost:4000/ap1/v1/State/states');
+      const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}ap1/v1/State/states`);
       setStates(res.data);
     } catch (err) {
       console.error('Error fetching states:', err);
@@ -28,7 +28,7 @@ export const Admin = () => {
 
   const fetchCities = async () => {
     try {
-      const res = await axios.get('http://localhost:4000/ap1/v1/city/city');
+      const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}ap1/v1/city/city`);
       setCities(res.data);
     } catch (err) {
       console.error('Error fetching cities:', err);
@@ -71,7 +71,7 @@ export const Admin = () => {
     formData.append('milege', mileage);
 
     try {
-      await axios.post('http://localhost:4000/ap1/v1/bikes/bike', formData);
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}ap1/v1/bikes/bike`, formData);
       alert('✅ Bike added successfully!');
     } catch (err) {
       console.error('Error submitting form:', err);

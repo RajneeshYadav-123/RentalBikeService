@@ -8,7 +8,7 @@ const GetBooking = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/ap1/v1/booking/book/");
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}ap1/v1/booking/book/`);
         setBookings(response.data.allBikes);
       } catch (error) {
         console.error("Error fetching bookings:", error);

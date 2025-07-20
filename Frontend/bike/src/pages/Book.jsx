@@ -21,7 +21,7 @@ const BookBike = () => {
 
 
       
-      await axios.post(`http://localhost:4000/ap1/v1/booking/book/${id}`, {
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}ap1/v1/booking/book/${id}`, {
         user_id:val,
         biker_id:id,
         pickup_time: pickupTime,

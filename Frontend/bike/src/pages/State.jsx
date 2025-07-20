@@ -7,7 +7,7 @@ const StateSelector = () => {
 
   const fetchStates = async () => {
     try {
-      const res = await axios.get('http://localhost:4000/ap1/v1/State/states');
+      const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}ap1/v1/State/states`);
       setStates(res.data);
     } catch (err) {
       console.error('Error fetching states:', err);

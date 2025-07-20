@@ -16,7 +16,7 @@ const SingleBike = () => {
   useEffect(() => {
     const fetchSingleBike = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/ap1/v1/bikes/bike/${id}`);
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}ap1/v1/bikes/bike/${id}`);
         if (response.data.GetsingleBike) {
           setSingle(response.data.GetsingleBike);
         } else {

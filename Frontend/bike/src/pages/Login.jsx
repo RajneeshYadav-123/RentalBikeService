@@ -10,7 +10,7 @@ export const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:4000/ap1/v1/auth/login', {
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}ap1/v1/auth/login`, {
         email,
         password
       });
