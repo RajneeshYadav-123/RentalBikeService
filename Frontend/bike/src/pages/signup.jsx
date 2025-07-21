@@ -36,6 +36,7 @@ export const Signup = () => {
 
       const type = response.data.user.accountType;
       const val = response.data.user._id;
+      localStorage.clear();
       localStorage.setItem(type, val);
 
       navigate('/login');
