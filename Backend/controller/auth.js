@@ -1,6 +1,5 @@
 const User = require("../models/user") ;
 
-
 const Profile = require("../models/Profile");
 const bcrypt = require("bcrypt") ;
 const jwt = require("jsonwebtoken") ;
@@ -56,6 +55,7 @@ const profileDetails =  await Profile.create({
     about : null ,
     contactNumber : null ,
 }) ;
+
 
      const user  = await User.create({
         firstName , 
@@ -165,6 +165,43 @@ exports.login = async(req , res) => {
 
     }
 }
+
+
+
+
+
+exports.getProfile = async (req, res) => {
+  try {
+    const userId = req.user.id;
+
+    const user = await User.findById(userId).populate();
+    
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    
+
+    return res.status(200).json({
+      success: true,
+      message: "User profile fetched successfully",
+      user,
+      alldata
+    });
+  } catch (error) {
+    console.error("Error fetching user profile:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Unable to fetch profile. Please try again later.",
+    });
+  }
+};
+
+
+
 
 
 
