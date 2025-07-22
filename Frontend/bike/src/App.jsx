@@ -8,7 +8,7 @@ import SingleBike from './pages/SingleBike';
 import BookBike from "./pages/Book";
 import GetBooking from "./pages/Boooing";
 import ViewSingleBooking from "./pages/ViewSingleBooking"
-import {Profile} from "./pages/Profile";
+import {Profile} from "./pages/profile";
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 
 const App = () => {
