@@ -98,7 +98,7 @@ const ViewSingleBooking = () => {
 
         <div className="mt-12 text-center">
           <button
-            onClick={() => navigate("/dashboard")}
+            onClick={() => navigate("/")}
             className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md text-sm font-medium transition"
           >
             ← Back to Dashboard
@@ -110,3 +110,5 @@ const ViewSingleBooking = () => {
 };
 
 export default ViewSingleBooking;
+
+

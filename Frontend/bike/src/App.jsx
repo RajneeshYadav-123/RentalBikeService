@@ -8,8 +8,9 @@ import SingleBike from './pages/SingleBike';
 import BookBike from "./pages/Book";
 import GetBooking from "./pages/Boooing";
 import ViewSingleBooking from "./pages/ViewSingleBooking"
-
+import {Profile} from "./pages/Profile";
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+
 const App = () => {
   return ( 
     <Router>
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/book/:id" element={<BookBike />} />
           <Route path="/Booking" element={<GetBooking />} />
           <Route path="/ViewSingleBooking" element={<ViewSingleBooking/>} />
+          <Route path = '/Profile' element = {<Profile/>}></Route>
 
         </Routes>
       </div>

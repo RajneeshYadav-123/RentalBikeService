@@ -5,9 +5,9 @@ const NavBar = () => {
 
   const handleAdmin = (e) => {
     e.preventDefault();
-    const val = localStorage.getItem('Admin');
+    const val = localStorage.getItem("Admin");
     if (val) {
-      navigate('/Admin');
+      navigate("/Admin");
     } else {
       alert("❌ Only Admin can access this page");
     }
@@ -15,9 +15,9 @@ const NavBar = () => {
 
   const handleBikerBooking = (e) => {
     e.preventDefault();
-    const val = localStorage.getItem('Biker');
+    const val = localStorage.getItem("Biker");
     if (val) {
-      navigate('/ViewSingleBooking');
+      navigate("/ViewSingleBooking");
     } else {
       alert("❌ Only Biker can access this page");
     }
@@ -25,38 +25,54 @@ const NavBar = () => {
 
   const handleBooking = (e) => {
     e.preventDefault();
-    const adminVal = localStorage.getItem('Admin');
+    const adminVal = localStorage.getItem("Admin");
     if (adminVal) {
-      navigate('/Booking');
+      navigate("/Booking");
     } else {
       alert("❌ Only Admin can access this page");
     }
   };
 
   return (
-    <div className="bg-slate-900 shadow-lg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between py-4">
-        <div className="flex items-center space-x-3">
+    <header className="bg-white shadow-md sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+        {/* Logo */}
+        <div className="flex items-center space-x-3 cursor-pointer" onClick={() => navigate("/")}>
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWx3VAp9zuLCrq8Gm4sIA-GDzRQtQBCHpjWQ&s"
             alt="Logo"
-            className="h-12 w-12 rounded-full shadow-md object-cover"
+            className="h-10 w-10 rounded-full object-cover shadow-md"
           />
-          <span className="text-2xl font-bold text-white">BikeZone</span>
+          <span className="text-xl font-extrabold text-slate-900 tracking-wide">BikeZone</span>
         </div>
 
-        <div className="flex flex-wrap justify-center sm:justify-end gap-4 sm:gap-6 mt-4 sm:mt-0 font-medium">
-          <a href="/AllBikes" className="text-white hover:text-yellow-400 transition duration-200">All Bikes</a>
-          <span onClick={handleBooking} role="button" className="text-white cursor-pointer hover:text-yellow-400 transition duration-200">Booking</span>
-          <a href="/Profile" className="text-white hover:text-yellow-400 transition duration-200">Profile</a>
-          <a href="/Signup" className="text-white hover:text-yellow-400 transition duration-200">Signup</a>
-          <a href="/Login" className="text-white hover:text-yellow-400 transition duration-200">Login</a>
-          <a href="/ContactUs" className="text-white hover:text-yellow-400 transition duration-200">Contact Us</a>
-          <span onClick={handleAdmin} role="button" className="text-white cursor-pointer hover:text-yellow-400 transition duration-200">Admin</span>
-          <span onClick={handleBikerBooking} role="button" className="text-white cursor-pointer hover:text-yellow-400 transition duration-200">View Booking</span>
+        {/* Navigation */}
+        <nav className="flex items-center space-x-6 font-medium text-sm">
+          <a href="/AllBikes" className="text-slate-700 hover:text-orange-500 transition">All Bikes</a>
+          <button onClick={handleBooking} className="text-slate-700 hover:text-orange-500 transition">Booking</button>
+          <a href="/Profile" className="text-slate-700 hover:text-orange-500 transition">Profile</a>
+          <a href="/ContactUs" className="text-slate-700 hover:text-orange-500 transition">Contact Us</a>
+          <button onClick={handleAdmin} className="text-slate-700 hover:text-orange-500 transition">Admin</button>
+          <button onClick={handleBikerBooking} className="text-slate-700 hover:text-orange-500 transition">View Booking</button>
+        </nav>
+
+        {/* Auth Buttons */}
+        <div className="flex items-center gap-3">
+          <a
+            href="/Login"
+            className="px-4 py-2 text-sm font-semibold border border-orange-500 text-orange-500 rounded-full hover:bg-orange-50 transition"
+          >
+            Login
+          </a>
+          <a
+            href="/Signup"
+            className="px-4 py-2 text-sm font-semibold bg-orange-500 text-white rounded-full hover:bg-orange-600 transition"
+          >
+            Sign Up
+          </a>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 
